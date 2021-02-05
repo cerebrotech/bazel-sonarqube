@@ -1,11 +1,5 @@
-load("@bazel_version//:bazel_version.bzl", "bazel_version")
-load("@bazel_skylib//lib:versions.bzl", "versions")
-
 def sonarqube_coverage_generator_binary():
-    if versions.is_at_least(threshold = "2.1.0", version = bazel_version):
-        deps = ["@remote_coverage_tools//:all_lcov_merger_lib"]
-    else:
-        deps = ["@bazel_tools//tools/test/CoverageOutputGenerator/java/com/google/devtools/coverageoutputgenerator:all_lcov_merger_lib"]
+    deps = ["@remote_coverage_tools//:all_lcov_merger_lib"]
 
     native.java_binary(
         name = "SonarQubeCoverageGenerator",
@@ -99,9 +93,9 @@ def _sonarqube_impl(ctx):
         output = ctx.outputs.executable,
         content = "\n".join([
             "#!/bin/bash",
-            "echo 'Dereferencing bazel runfiles symlinks for accurate SCM resolution...'",
-            "for f in $(find $(dirname %s) -type l); do sed -i '' $f; done" % sq_properties_file.short_path,
-            "echo '... done.'",
+            #"echo 'Dereferencing bazel runfiles symlinks for accurate SCM resolution...'",
+            #"for f in $(find $(dirname %s) -type l); do echo $f; done" % sq_properties_file.short_path,
+            #"echo '... done.'",
             "exec %s -Dproject.settings=%s $@" % (ctx.executable.sonar_scanner.short_path, sq_properties_file.short_path),
         ]),
         is_executable = True,
