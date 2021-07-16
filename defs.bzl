@@ -103,7 +103,7 @@ def _sonarqube_impl(ctx):
             #"echo '... done.'",
             #
             "find $(dirname %s) -type l -exec bash -c 'ln -f $(readlink $0) $0' {} \\;" % sq_properties_file.short_path,
-            "exec %s -Dproject.settings=%s $@" % (ctx.executable.sonar_scanner.short_path, sq_properties_file.short_path),
+            "exec %s $@ -Dproject.settings=%s" % (ctx.executable.sonar_scanner.short_path, sq_properties_file.short_path),
         ]),
         is_executable = True,
     )
