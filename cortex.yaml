@@ -1,0 +1,15 @@
+openapi: 3.0.1
+info:
+  title: bazel-sonarqube
+  description: Cortex descriptor created automatically by eng-devprod
+  x-cortex-tag: bazel-sonarqube
+  x-cortex-type: service
+  x-cortex-owners:
+  - name: eng-devprod
+    type: group
+    provider: OKTA
+    description: Updated by eng-devprod
+  x-cortex-git:
+    github:
+      alias: cortex
+      repository: cerebrotech/bazel-sonarqube
