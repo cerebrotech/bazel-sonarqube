@@ -5,8 +5,11 @@ info:
   x-cortex-tag: bazel-sonarqube
   x-cortex-type: service
   x-cortex-owners:
-  - name: urian
+  - name: eng-devprod
     type: group
     provider: OKTA
     description: Updated by eng-devprod
-
+  x-cortex-git:
+    github:
+      alias: cortex
+      repository: cerebrotech/bazel-sonarqube
