@@ -5,6 +5,7 @@ filegroup(
         exclude = [".git/**/*[*"],  # gitk creates temp files with []
     ),
     tags = ["manual"],
+    visibility = ["//visibility:public"],
 )
 
 filegroup(
@@ -35,4 +36,5 @@ sonarqube(
     scm_info = [":git"],
     tags = ["manual"],
     targets = [],
+    testonly = True,
 )
