@@ -1,8 +1,8 @@
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
 def bazel_sonarqube_repositories(
-        sonar_scanner_cli_version = "4.5.0.2216",
-        sonar_scanner_cli_sha256 = "a271a933d14da6e8705d58996d30afd0b4afc93c0bfe957eb377bed808c4fa89"):
+        sonar_scanner_cli_version = "8.1.0.6389",
+        sonar_scanner_cli_sha256 = "ab76ab3c360025e9108be5b55be066f304a164f8b2850d2f2f333915db51bc1b"):
 
     http_archive(
         name = "org_sonarsource_scanner_cli_sonar_scanner_cli",
